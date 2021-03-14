@@ -1,12 +1,32 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
-// get all products
+// get all products -- check for accuracy
 router.get('/', (req, res) => {
-  // find all products
+   // find all products
   // be sure to include its associated Category and Tag data
+  try {
+    const getAllProducts = await Product.findAll({
+      include: [{ model: Category }, { model: Tag }],
+      attributes: {
+        include: [
+          [
+            // Use plain SQL to add up the total stock of all products
+            sequelize.literal(
+              '(SELECT ALL(stock) FROM product WHERE product.category_id = category.id)'
+            ),
+            'totalProducts',
+          ],
+        ],
+      },
+    });
+    res.status(200).json(getAllProducts);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // get one product
@@ -90,7 +110,23 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+  // delete one product by its `id` value-- check for accuracy
+  try {
+    const ProductData = await Product.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+
+    if (!ProductData) {
+      res.status(404).json({ message: 'No products found with this id!' });
+      return;
+    }
+
+    res.status(200).json(ProductData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
