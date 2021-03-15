@@ -33,10 +33,8 @@ Product.init(
     category_id: {
       type: DataTypes.INTEGER,
       references: {
-        // needs to reference the Category model's id
         model: 'category',
         key: 'id',
-        unique: false
       }
     },
   },
