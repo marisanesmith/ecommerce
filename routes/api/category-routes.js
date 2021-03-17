@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
     where: {
       id: req.params.id,
     }
-  }).then((UpdateCategory) => {
+  }).then((updateCategory) => {
     res.json(updateCategory);
   })
   .catch((err) => {
