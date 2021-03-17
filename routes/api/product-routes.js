@@ -4,24 +4,24 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
-// get all products -- check for accuracy
+// get all products -- works
 router.get('/', async (req, res) => {
    // find all products
   // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category }, { model: Tag }],
-      attributes: {
-        include: [
-          [
-            // Use plain SQL to add up the total stock of all products
-            sequelize.literal(
-              '(SELECT ALL(stock) FROM product WHERE product.category_id = category.id)'
-            ),
-            'totalProducts',
-          ],
-        ],
-      },
+      // include: [{ model: Category }, { model: Tag }],
+      // attributes: {
+      //   include: [
+      //     [
+      //       // Use plain SQL to add up the total stock of all products
+      //       sequelize.literal(
+      //         '(SELECT ALL(stock) FROM product WHERE product.category_id = category.id)'
+      //       ),
+      //       'totalProducts',
+      //     ],
+      //   ],
+      // },
     });
     res.status(200).json(productData);
   } catch (err) {
@@ -29,13 +29,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product -- check for accuracy
+// get one product -- works
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category, through: Tag, as: 'product_tags' }]
+      // include: [{ model: Category, through: Tag, as: 'product_tags' }]
     });
 
     if (!productData) {
