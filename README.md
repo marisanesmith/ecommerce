@@ -1,6 +1,6 @@
 # E-Commerce 
 
-![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)<br>
+![GitHub License](https://img.shields.io/badge/license-MIT-green.svg)<br>
 
 ## Table of Contents
 * [Project Overview](#Project-Overview)
@@ -31,10 +31,10 @@ Once you have created the database you will need to run the following commands i
 1. npm run seed
 2. npm start
 
-Once that is complete you will need to use an API tool such as Postman or Insomnia to review your API calls and build  your application. 
+After that is complete you will need to use an API tool such as Postman or Insomnia to review your API calls and build  your application. 
 
 ## License
-![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)
+![GitHub License](https://img.shields.io/badge/license-MIT-green.svg)
 
 
 You can find out more about the MIT license on the open source page [here](https://www.opensource.org/licenses/MIT)
