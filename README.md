@@ -12,8 +12,9 @@
 ## Project Overview
 
 ## Application
-[E-Commerce Initial Set Up Video](https://drive.google.com/file/d/1MfIQFlnmGY3jEGQJIqMzjAKfSphIouTQ/view)
-[E-Commerce Insonmia Walk Through Video](https://drive.google.com/file/d/1Wp7ZD5rQpX4rh3uRMcCkz7BSwzKGuyik/view)
+* [E-Commerce Initial Set Up Video](https://drive.google.com/file/d/1MfIQFlnmGY3jEGQJIqMzjAKfSphIouTQ/view)
+
+* [E-Commerce Insonmia Walk Through Video](https://drive.google.com/file/d/1Wp7ZD5rQpX4rh3uRMcCkz7BSwzKGuyik/view)
 
 ## Installation
 
